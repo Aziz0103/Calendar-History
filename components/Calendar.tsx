@@ -1,13 +1,16 @@
 import React from "react";
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import 'swiper/css';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { gsap } from 'gsap';
 
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
+// import required modules
+import { Pagination, Navigation } from "swiper/modules";
 
-
-export default function Calendar () {
-
-
+export default function Calendar() {
   return (
     <div className="container">
       {/* Title Section */}
@@ -65,49 +68,70 @@ export default function Calendar () {
       </div>
 
       {/* Content Section */}
-      <div className="swiper">
-        <div className="swiper-wraper">
-          <div className="contentSection swiper-slide">
+      <div className="contentSection ">
+        <Swiper
+          slidesPerView={3.5} // Number of slides visible at a time
+          pagination={{ clickable: true }} // Enable pagination dots
+          navigation={true}
+          modules={[Navigation]}
+        >
+          {/* Slide 1 */}
+          <SwiperSlide>
             <div className="contentItem">
               <div className="date">July 2023</div>
               <p className="text">
                 Something really important is going on spirit vs Navi.
               </p>
             </div>
+          </SwiperSlide>
+
+          {/* Slide 2 */}
+          <SwiperSlide>
             <div className="contentItem">
               <div className="date">August 2023</div>
               <p className="text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </p>
             </div>
+          </SwiperSlide>
+
+          {/* Slide 3 */}
+          <SwiperSlide>
             <div className="contentItem">
               <div className="date">September 2023</div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p className="text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
             </div>
-          </div>
-          <div className="contentSection swiper-slide">
+          </SwiperSlide>
+          <SwiperSlide>
             <div className="contentItem">
               <div className="date">July 2023</div>
               <p className="text">
                 Something really important is going on spirit vs Navi.
               </p>
             </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
             <div className="contentItem">
               <div className="date">August 2023</div>
               <p className="text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </p>
             </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
             <div className="contentItem">
               <div className="date">September 2023</div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p className="text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
             </div>
-          </div>
-        </div>
-        <div className="swiper-button-prev"></div>
-        <div className="swiper-button-next"></div>
+          </SwiperSlide>
+        </Swiper>
       </div>
     </div>
   );
-};
-
+}
